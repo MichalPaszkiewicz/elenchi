@@ -7,8 +7,19 @@ export class Guid{
         return this._id;
     }
 
-    NewGuid(){
-        return new Guid("123");
+    s4(){
+        return Math.floor((1 + Math.random()) * 0x10000)
+              .toString(16)
+              .substring(1);
+    }
+
+    NewGuid(): Guid{
+        var self = this;
+        return new Guid(self.s4() + self.s4() + '-' + 
+                        self.s4() + '-' + 
+                        self.s4() + '-' + 
+                        self.s4() + '-' + 
+                        self.s4() + self.s4() + self.s4());
     }
 
     equals(other: Guid){
