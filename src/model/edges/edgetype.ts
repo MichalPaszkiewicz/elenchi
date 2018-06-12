@@ -1,5 +1,5 @@
 export enum EdgeType{
-    Equivalent,
-    Therefore,
-    Response
+    Equivalent = "equivalent",
+    Therefore = "therefore",
+    Answer = "answer"
 }
