@@ -15,6 +15,7 @@ export class VertexEntityMapper{
                 (<Fact>vertex).evidence = bgv.properties.userId[0].value;
                 break;
         }
+        vertex.aggregateId = new Guid(bgv.aggregateId);
         vertex.id = new Guid(bgv.id);
         vertex.userId = new Guid(bgv.properties.userId[0].value);
         vertex.tags = bgv.properties.tags.split(",");
@@ -22,6 +23,7 @@ export class VertexEntityMapper{
     }
     static vertexToGremlinScript(vertex: Vertex): GremlinScript{
         var dbScript = GremlinScript.vertices().addV(vertex.type)
+            .property("aggregateId", vertex.aggregateId.toString())
             .property("id", vertex.id.toString())
             .property("tags", vertex.tags.join(","))
             .property("userId", vertex.userId.toString())

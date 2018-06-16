@@ -4,6 +4,7 @@ import { BaseGremlinVertex } from "../../entities/basegremlinvertex";
 
 export abstract class Vertex{
     id: Guid;
+    aggregateId: Guid;
     text: string;
     tags: Framework[] = [];    
     abstract type: string;

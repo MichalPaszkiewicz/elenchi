@@ -3,4 +3,5 @@ export class BaseGremlinVertex{
     label: string;
     type = "vertex";
     properties: any;
+    aggregateId: string;
 }
