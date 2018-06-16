@@ -9,11 +9,15 @@ export class Graph{
     }
 
     addVertex(vertex: Vertex){
-        this.vertices.push(vertex);
+        var newVertices = this.vertices.slice(0);
+        newVertices.push(vertex);
+        return new Graph(newVertices, this.edges);
     }
 
     addEdge(edge: Edge){
-        this.edges.push(edge);
+        var newEdges = this.edges.slice(0);
+        newEdges.push(edge);
+        return new Graph(this.vertices, newEdges);
     }
 
     subGraph(vertex: Vertex, distance: number){

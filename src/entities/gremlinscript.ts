@@ -31,10 +31,14 @@ export class GremlinScript{
     }
 
     has(key: string, value: string){
-        return new GremlinScript(`${this._script}.has("${key}","${value}")`)
+        return new GremlinScript(`${this._script}.has("${key}","${value}")`);
     }
 
     toString(){
         return this._script;
+    }
+
+    count(){
+        return new GremlinScript(`${this._script}.count()`);
     }
 }
